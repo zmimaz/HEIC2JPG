@@ -2,3 +2,7 @@
 
 # Clean URL: /index.html → /
 /index.html  /  301
+
+# Sitemap: redirect to raw XML on GitHub Gist (backup plan)
+# Uncomment the line below ONLY if _headers still doesn't fix Content-Type:
+# /sitemap.xml  https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/sitemap.xml  200

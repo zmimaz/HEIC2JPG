@@ -1,22 +1,14 @@
-# ============================================================
-#  Cloudflare Pages — Custom HTTP Headers
-# ============================================================
+# Cloudflare Pages custom headers
 
-# ---- Global headers for ALL pages ----
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+
 /*
-  X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-
-# ---- HTML pages: short cache ----
-/
-  Cache-Control: public, max-age=3600, must-revalidate
-
-/index.html
-  Cache-Control: public, max-age=3600, must-revalidate
-
-# ---- OG Image: long cache ----
-/og-image.png
-  Cache-Control: public, max-age=2592000, immutable
