@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Ensure clean URLs and handle common patterns
+
+# If someone visits /index.html, redirect to clean /
+/index.html  /  301
