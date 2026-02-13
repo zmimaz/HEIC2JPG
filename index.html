@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEIC转JPG转换器 - 免费在线转换苹果图片格式</title>
+    <meta name="description" content="免费在线HEIC转JPG工具，无需安装软件，支持批量转换，隐私安全，所有处理在本地浏览器完成。">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- heic2any: 基于libheif的纯前端HEIC解码库 -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        /* 拖拽区域动画 */
+        .drop-zone {
+            transition: all 0.3s ease;
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23CBD5E1' stroke-width='3' stroke-dasharray='12%2c 8' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+        }
+        .drop-zone.drag-over {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%233B82F6' stroke-width='3' stroke-dasharray='12%2c 8' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+            background-color: #eff6ff;
+            transform: scale(1.01);
+        }
+
+        /* 进度条动画 */
+        .progress-bar-fill {
+            transition: width 0.4s ease;
+        }
+
+        /* 淡入动画 */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 脉冲加载动画 */
+        .pulse-loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* 文件卡片 */
+        .file-card {
+            transition: all 0.2s ease;
+        }
+        .file-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* 按钮微交互 */
+        .btn-primary {
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+
+    <!-- 顶部导航 -->
+    <nav class="bg-white/70 backdrop-blur-lg border-b border-slate-200/50 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-200">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <span class="text-lg font-bold text-slate-800">HEIC<span class="text-blue-600">2</span>JPG</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs text-slate-500 bg-green-50 px-3 py-1.5 rounded-full border border-green-200">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                本地转换 · 隐私安全
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <!-- Hero 区域 -->
+        <div class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                HEIC 图片转 JPG
+                <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> 在线转换器</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                苹果设备拍摄的 HEIC 格式无法打开？拖入即可转换为通用 JPG 格式。
+                <br class="hidden sm:block">
+                <strong class="text-slate-600">完全免费</strong>，无需上传到服务器，所有转换在您的浏览器中本地完成。
+            </p>
+        </div>
+
+        <!-- 功能特点 -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-8 max-w-2xl mx-auto">
+            <div class="text-center p-3 sm:p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                <div class="text-2xl mb-1">🔒</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700">隐私安全</div>
+                <div class="text-xs text-slate-400 mt-0.5 hidden sm:block">文件不离开设备</div>
+            </div>
+            <div class="text-center p-3 sm:p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                <div class="text-2xl mb-1">⚡</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700">极速转换</div>
+                <div class="text-xs text-slate-400 mt-0.5 hidden sm:block">浏览器本地处理</div>
+            </div>
+            <div class="text-center p-3 sm:p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                <div class="text-2xl mb-1">📦</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700">批量转换</div>
+                <div class="text-xs text-slate-400 mt-0.5 hidden sm:block">一次选择多个文件</div>
+            </div>
+        </div>
+
+        <!-- 上传区域 -->
+        <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden mb-6">
+            <div class="p-6 sm:p-8">
+                <div id="dropZone" class="drop-zone rounded-2xl p-8 sm:p-12 text-center cursor-pointer relative">
+                    <input type="file" id="fileInput" accept=".heic,.heif,image/heic,image/heif" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                    
+                    <div id="uploadPrompt">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-5 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                        </div>
+                        <p class="text-lg sm:text-xl font-semibold text-slate-700 mb-2">点击或拖拽 HEIC 文件到此处</p>
+                        <p class="text-sm text-slate-400">支持 .heic / .heif 格式，可多选文件批量转换</p>
+                        <p class="text-xs text-slate-300 mt-2">单个文件建议不超过 30MB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文件列表区域 -->
+        <div id="fileListSection" class="hidden mb-6">
+            <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden">
+                <div class="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-lg font-bold text-slate-800">已选文件</h2>
+                        <span id="fileCount" class="text-xs bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full font-medium">0 个</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="addMoreBtn" class="text-sm text-blue-600 hover:text-blue-700 font-medium px-3 py-1.5 hover:bg-blue-50 rounded-lg transition-colors">
+                            + 继续添加
+                        </button>
+                        <button id="clearAllBtn" class="text-sm text-red-500 hover:text-red-600 font-medium px-3 py-1.5 hover:bg-red-50 rounded-lg transition-colors">
+                            清空全部
+                        </button>
+                    </div>
+                </div>
+                <div id="fileList" class="divide-y divide-slate-50 max-h-80 overflow-y-auto">
+                    <!-- 文件项将通过JavaScript动态添加 -->
+                </div>
+                <div class="p-4 sm:p-6 bg-slate-50/50 border-t border-slate-100">
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <!-- 质量滑块 -->
+                        <div class="flex items-center gap-3 flex-1">
+                            <label class="text-sm font-medium text-slate-600 whitespace-nowrap">JPG 质量：</label>
+                            <input type="range" id="qualitySlider" min="0.1" max="1" step="0.05" value="0.92" class="flex-1 accent-blue-500 h-2">
+                            <span id="qualityValue" class="text-sm font-bold text-blue-600 min-w-[3rem] text-right">92%</span>
+                        </div>
+                        <button id="convertBtn" class="btn-primary w-full sm:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-8 py-3 rounded-xl shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                            <span id="convertBtnText" class="flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                开始转换
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 总进度条 -->
+        <div id="totalProgressSection" class="hidden mb-6 fade-in">
+            <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden p-6">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-sm font-semibold text-slate-700">总体进度</span>
+                    <span id="totalProgressText" class="text-sm font-bold text-blue-600">0 / 0</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+                    <div id="totalProgressBar" class="progress-bar-fill h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 转换结果区域 -->
+        <div id="resultSection" class="hidden mb-6 fade-in">
+            <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden">
+                <div class="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-lg font-bold text-slate-800">转换完成</h2>
+                        <span id="resultCount" class="text-xs bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full font-medium">0 个</span>
+                    </div>
+                    <button id="downloadAllBtn" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            全部下载
+                        </span>
+                    </button>
+                </div>
+                <div id="resultList" class="divide-y divide-slate-50 max-h-96 overflow-y-auto">
+                    <!-- 结果项将通过JavaScript动态添加 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 错误提示区域 -->
+        <div id="errorSection" class="hidden mb-6 fade-in">
+            <div class="bg-red-50 rounded-2xl border border-red-200 p-5">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-red-800 mb-1">转换出错</h3>
+                        <p id="errorMessage" class="text-sm text-red-600"></p>
+                    </div>
+                    <button id="closeError" class="ml-auto text-red-400 hover:text-red-600 flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 区域 -->
+        <div class="mt-12 mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 text-center mb-8">常见问题</h2>
+            <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                <div class="bg-white/70 rounded-xl p-5 border border-slate-200/50">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                        <span class="text-blue-500">Q:</span> 什么是 HEIC 格式？
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">HEIC（High Efficiency Image Container）是苹果公司在 iOS 11 之后采用的默认图片格式。它比 JPG 压缩率更高、质量更好，但在 Windows 和安卓设备上兼容性较差。</p>
+                </div>
+                <div class="bg-white/70 rounded-xl p-5 border border-slate-200/50">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                        <span class="text-blue-500">Q:</span> 我的图片会被上传吗？
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">不会！所有转换过程100%在您的浏览器中本地完成，您的图片不会被上传到任何服务器。关闭网页后，所有数据即消失。</p>
+                </div>
+                <div class="bg-white/70 rounded-xl p-5 border border-slate-200/50">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                        <span class="text-blue-500">Q:</span> 支持哪些浏览器？
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">推荐使用最新版的 Chrome、Edge、Firefox 或 Safari 浏览器。由于使用了 WebAssembly 技术，需要较新的浏览器版本。</p>
+                </div>
+                <div class="bg-white/70 rounded-xl p-5 border border-slate-200/50">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2">
+                        <span class="text-blue-500">Q:</span> 转换后的质量如何？
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">默认转换质量为 92%，您可以通过滑块自行调节。质量越高文件越大，92% 是视觉质量与文件大小的最佳平衡点。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="border-t border-slate-200/50 bg-white/50 backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-center">
+            <p class="text-sm text-slate-400">
+                HEIC2JPG 在线转换器 · 免费 · 开源 · 隐私安全
+            </p>
+            <p class="text-xs text-slate-300 mt-1">
+                基于 <a href="https://github.com/nichenqin/heic2any" target="_blank" class="underline hover:text-slate-500">heic2any</a> 和 <a href="https://github.com/nichenqin/libheif-js" target="_blank" class="underline hover:text-slate-500">libheif</a> 构建
+            </p>
+        </div>
+    </footer>
+
+    <!-- 隐藏的额外文件输入框（用于"继续添加"功能） -->
+    <input type="file" id="addMoreInput" accept=".heic,.heif,image/heic,image/heif" multiple class="hidden">
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ==================== DOM 元素引用 ====================
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const addMoreInput = document.getElementById('addMoreInput');
+        const fileListSection = document.getElementById('fileListSection');
+        const fileList = document.getElementById('fileList');
+        const fileCount = document.getElementById('fileCount');
+        const convertBtn = document.getElementById('convertBtn');
+        const convertBtnText = document.getElementById('convertBtnText');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+        const totalProgressSection = document.getElementById('totalProgressSection');
+        const totalProgressBar = document.getElementById('totalProgressBar');
+        const totalProgressText = document.getElementById('totalProgressText');
+        const resultSection = document.getElementById('resultSection');
+        const resultList = document.getElementById('resultList');
+        const resultCount = document.getElementById('resultCount');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const errorSection = document.getElementById('errorSection');
+        const errorMessage = document.getElementById('errorMessage');
+        const closeError = document.getElementById('closeError');
+        const addMoreBtn = document.getElementById('addMoreBtn');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+
+        // ==================== 状态管理 ====================
+        let selectedFiles = [];      // 用户选中的HEIC文件
+        let convertedResults = [];   // 转换完成的结果
+        let isConverting = false;    // 是否正在转换中
+
+        // ==================== 工具函数 ====================
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        function getFileNameWithoutExt(name) {
+            return name.replace(/\.[^/.]+$/, '');
+        }
+
+        function isHEICFile(file) {
+            const name = file.name.toLowerCase();
+            const type = file.type.toLowerCase();
+            return name.endsWith('.heic') || name.endsWith('.heif') || 
+                   type === 'image/heic' || type === 'image/heif' ||
+                   type === 'image/heic-sequence' || type === 'image/heif-sequence';
+        }
+
+        function showError(msg) {
+            errorMessage.textContent = msg;
+            errorSection.classList.remove('hidden');
+            errorSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function hideError() {
+            errorSection.classList.add('hidden');
+        }
+
+        // ==================== 拖拽交互 ====================
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.add('drag-over');
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.remove('drag-over');
+            });
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            const files = Array.from(e.dataTransfer.files);
+            handleFiles(files);
+        });
+
+        // ==================== 文件选择 ====================
+        fileInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            handleFiles(files);
+            e.target.value = ''; // 重置以允许重新选择同一文件
+        });
+
+        addMoreInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            handleFiles(files);
+            e.target.value = '';
+        });
+
+        addMoreBtn.addEventListener('click', () => {
+            addMoreInput.click();
+        });
+
+        clearAllBtn.addEventListener('click', () => {
+            selectedFiles = [];
+            renderFileList();
+            fileListSection.classList.add('hidden');
+            resultSection.classList.add('hidden');
+            totalProgressSection.classList.add('hidden');
+            convertedResults = [];
+        });
+
+        // ==================== 处理文件选择 ====================
+        function handleFiles(files) {
+            hideError();
+
+            if (files.length === 0) return;
+
+            // 过滤出HEIC文件
+            const heicFiles = files.filter(f => isHEICFile(f));
+            const skipped = files.length - heicFiles.length;
+
+            if (heicFiles.length === 0) {
+                showError('没有检测到有效的 HEIC/HEIF 文件。请确保您选择的是苹果设备拍摄的 .heic 或 .heif 格式图片。');
+                return;
+            }
+
+            if (skipped > 0) {
+                showError(`已跳过 ${skipped} 个非 HEIC 格式文件，仅保留了 ${heicFiles.length} 个 HEIC 文件。`);
+            }
+
+            // 检查文件大小
+            const oversized = heicFiles.filter(f => f.size > 50 * 1024 * 1024);
+            if (oversized.length > 0) {
+                showError(`${oversized.length} 个文件超过 50MB 限制，可能导致转换失败。`);
+            }
+
+            // 添加到列表（去重）
+            heicFiles.forEach(file => {
+                const exists = selectedFiles.some(f => f.name === file.name && f.size === file.size);
+                if (!exists) {
+                    selectedFiles.push(file);
+                }
+            });
+
+            renderFileList();
+            fileListSection.classList.remove('hidden');
+            fileListSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // ==================== 渲染文件列表 ====================
+        function renderFileList() {
+            fileList.innerHTML = '';
+            fileCount.textContent = `${selectedFiles.length} 个`;
+
+            selectedFiles.forEach((file, index) => {
+                const item = document.createElement('div');
+                item.className = 'file-card flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 hover:bg-slate-50/80';
+                item.innerHTML = `
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-700 truncate">${file.name}</p>
+                        <p class="text-xs text-slate-400">${formatFileSize(file.size)}</p>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <div id="status-${index}" class="text-xs text-slate-400">等待转换</div>
+                        <button class="remove-btn text-slate-300 hover:text-red-500 transition-colors p-1" data-index="${index}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                fileList.appendChild(item);
+            });
+
+            // 绑定删除按钮
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if (isConverting) return;
+                    const idx = parseInt(btn.dataset.index);
+                    selectedFiles.splice(idx, 1);
+                    renderFileList();
+                    if (selectedFiles.length === 0) {
+                        fileListSection.classList.add('hidden');
+                    }
+                });
+            });
+
+            convertBtn.disabled = selectedFiles.length === 0;
+        }
+
+        // ==================== 质量滑块 ====================
+        qualitySlider.addEventListener('input', () => {
+            const val = Math.round(qualitySlider.value * 100);
+            qualityValue.textContent = val + '%';
+        });
+
+        // ==================== 核心：转换逻辑 ====================
+        convertBtn.addEventListener('click', startConversion);
+
+        async function startConversion() {
+            if (isConverting || selectedFiles.length === 0) return;
+
+            isConverting = true;
+            hideError();
+            convertedResults = [];
+
+            // 更新按钮状态
+            convertBtn.disabled = true;
+            convertBtnText.innerHTML = `
+                <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                转换中...
+            `;
+
+            // 显示总进度
+            totalProgressSection.classList.remove('hidden');
+            resultSection.classList.add('hidden');
+            resultList.innerHTML = '';
+
+            const quality = parseFloat(qualitySlider.value);
+            const total = selectedFiles.length;
+            let completed = 0;
+            let errors = [];
+
+            // 逐个转换（避免内存溢出）
+            for (let i = 0; i < total; i++) {
+                const file = selectedFiles[i];
+                const statusEl = document.getElementById(`status-${i}`);
+
+                // 更新状态为"转换中"
+                if (statusEl) {
+                    statusEl.innerHTML = '<span class="text-blue-500 pulse-loading">转换中...</span>';
+                }
+
+                try {
+                    const blob = await heic2any({
+                        blob: file,
+                        toType: 'image/jpeg',
+                        quality: quality
+                    });
+
+                    // heic2any 可能返回单个blob或blob数组（多帧图像）
+                    const resultBlob = Array.isArray(blob) ? blob[0] : blob;
+                    const jpgName = getFileNameWithoutExt(file.name) + '.jpg';
+                    const url = URL.createObjectURL(resultBlob);
+
+                    convertedResults.push({
+                        name: jpgName,
+                        originalName: file.name,
+                        originalSize: file.size,
+                        size: resultBlob.size,
+                        url: url,
+                        blob: resultBlob
+                    });
+
+                    if (statusEl) {
+                        statusEl.innerHTML = '<span class="text-green-600 font-medium">✓ 完成</span>';
+                    }
+                } catch (err) {
+                    console.error(`转换失败: ${file.name}`, err);
+                    errors.push(file.name);
+                    if (statusEl) {
+                        statusEl.innerHTML = '<span class="text-red-500 font-medium">✗ 失败</span>';
+                    }
+                }
+
+                completed++;
+                const percent = Math.round((completed / total) * 100);
+                totalProgressBar.style.width = percent + '%';
+                totalProgressText.textContent = `${completed} / ${total}`;
+            }
+
+            // 转换完毕
+            isConverting = false;
+            convertBtn.disabled = false;
+            convertBtnText.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                开始转换
+            `;
+
+            // 显示错误信息
+            if (errors.length > 0) {
+                showError(`以下文件转换失败：${errors.join('、')}。可能原因：文件损坏、格式不支持或文件过大。`);
+            }
+
+            // 显示结果
+            if (convertedResults.length > 0) {
+                renderResults();
+            }
+        }
+
+        // ==================== 渲染转换结果 ====================
+        function renderResults() {
+            resultSection.classList.remove('hidden');
+            resultList.innerHTML = '';
+            resultCount.textContent = `${convertedResults.length} 个`;
+
+            convertedResults.forEach((result, index) => {
+                const compression = ((1 - result.size / result.originalSize) * 100).toFixed(0);
+                const item = document.createElement('div');
+                item.className = 'fade-in flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 hover:bg-slate-50/80';
+                item.style.animationDelay = `${index * 0.08}s`;
+                item.innerHTML = `
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100 border border-slate-200">
+                        <img src="${result.url}" alt="${result.name}" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-700 truncate">${result.name}</p>
+                        <div class="flex items-center gap-2 mt-0.5">
+                            <span class="text-xs text-slate-400">${formatFileSize(result.size)}</span>
+                            <span class="text-xs ${parseInt(compression) > 0 ? 'text-green-500' : 'text-orange-500'}">
+                                ${parseInt(compression) > 0 ? '↓' : '↑'} ${Math.abs(compression)}%
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <button class="preview-btn text-slate-400 hover:text-blue-500 transition-colors p-2" data-index="${index}" title="预览">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </button>
+                        <a href="${result.url}" download="${result.name}" class="bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors">
+                            下载
+                        </a>
+                    </div>
+                `;
+                resultList.appendChild(item);
+            });
+
+            // 绑定预览按钮
+            document.querySelectorAll('.preview-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = parseInt(btn.dataset.index);
+                    openPreview(convertedResults[idx]);
+                });
+            });
+
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // ==================== 预览弹窗 ====================
+        function openPreview(result) {
+            const overlay = document.createElement('div');
+            overlay.className = 'fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 fade-in';
+            overlay.innerHTML = `
+                <div class="relative max-w-4xl max-h-[90vh] w-full">
+                    <button class="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    <img src="${result.url}" alt="${result.name}" class="w-full h-full object-contain rounded-lg">
+                    <p class="text-center text-white/60 text-sm mt-3">${result.name} · ${formatFileSize(result.size)}</p>
+                </div>
+            `;
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay || e.target.closest('button')) {
+                    overlay.remove();
+                }
+            });
+            document.addEventListener('keydown', function handler(e) {
+                if (e.key === 'Escape') {
+                    overlay.remove();
+                    document.removeEventListener('keydown', handler);
+                }
+            });
+            document.body.appendChild(overlay);
+        }
+
+        // ==================== 全部下载 ====================
+        downloadAllBtn.addEventListener('click', () => {
+            if (convertedResults.length === 0) return;
+
+            if (convertedResults.length === 1) {
+                // 单文件直接下载
+                const a = document.createElement('a');
+                a.href = convertedResults[0].url;
+                a.download = convertedResults[0].name;
+                a.click();
+            } else {
+                // 多文件逐个触发下载
+                convertedResults.forEach((result, i) => {
+                    setTimeout(() => {
+                        const a = document.createElement('a');
+                        a.href = result.url;
+                        a.download = result.name;
+                        a.click();
+                    }, i * 300);
+                });
+            }
+        });
+
+        // ==================== 关闭错误提示 ====================
+        closeError.addEventListener('click', hideError);
+
+        // ==================== 页面离开前清理 ====================
+        window.addEventListener('beforeunload', () => {
+            convertedResults.forEach(r => URL.revokeObjectURL(r.url));
+        });
+
+    })();
+    </script>
+</body>
+</html>
