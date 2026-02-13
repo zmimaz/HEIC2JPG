@@ -20,7 +20,7 @@
     <meta name="author" content="HEIC2JPG Online Converter">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#3b82f6">
-    <meta name="google-site-verification" content="4WI_3eRemF_5-ZcGQQBK2xW8rRPC6U3tPHAIsgI06kE">
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
     <link rel="canonical" href="https://heic2jpg.pages.dev/" data-domain-url>
 
     <!-- ==================== SEO: Favicon ==================== -->
@@ -28,8 +28,9 @@
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3e%3cdefs%3e%3clinearGradient id='g' x1='0' y1='0' x2='64' y2='64' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%233b82f6'/%3e%3cstop offset='1' stop-color='%236366f1'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect width='64' height='64' rx='14' fill='url(%23g)'/%3e%3cpath d='M16 40l8-8a4 4 0 015.6 0L36 38l4-4a4 4 0 015.6 0L50 38M38 26h.1M20 48h24a4 4 0 004-4V20a4 4 0 00-4-4H20a4 4 0 00-4 4v24a4 4 0 004 4z' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e">
 
     <!-- ==================== SEO: Hreflang for i18n ==================== -->
-    <link rel="alternate" hreflang="zh-CN" href="https://heic2jpg.pages.dev/?lang=zh" data-domain-url>
-    <link rel="alternate" hreflang="en" href="https://heic2jpg.pages.dev/?lang=en" data-domain-url>
+    <!-- Single-page app: all languages served from same URL, auto-detected -->
+    <link rel="alternate" hreflang="zh-CN" href="https://heic2jpg.pages.dev/" data-domain-url>
+    <link rel="alternate" hreflang="en" href="https://heic2jpg.pages.dev/" data-domain-url>
     <link rel="alternate" hreflang="x-default" href="https://heic2jpg.pages.dev/" data-domain-url>
 
     <!-- ==================== SEO: Sitemap Discovery ==================== -->
@@ -811,13 +812,17 @@
             zhBtn.setAttribute('aria-checked', 'false');
         }
 
-        // Update URL without reload (for SEO sharing)
+        // Update URL: only add ?lang= if user explicitly switched
+        // This avoids polluting the canonical URL for search engines
         const url = new URL(window.location);
-        url.searchParams.set('lang', lang);
-        history.replaceState(null, '', url);
+        if (url.searchParams.has('lang') || window._userSwitchedLang) {
+            url.searchParams.set('lang', lang);
+            history.replaceState(null, '', url);
+        }
     }
 
     function switchLang(lang) {
+        window._userSwitchedLang = true; // Mark as explicit switch
         applyLanguage(lang);
         // Re-render file list if visible (to update status labels)
         if (typeof renderFileList === 'function' && selectedFiles && selectedFiles.length > 0) {

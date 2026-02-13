@@ -3,8 +3,8 @@
 #  Boost SEO, security, and performance
 # ============================================================
 
+# ---- Global headers for ALL pages ----
 /*
-  # Security Headers
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
@@ -12,17 +12,24 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self' https://cdn.jsdelivr.net; worker-src 'self' blob:;
 
-  # Cache Control — HTML pages: short cache, revalidate
-  # (Cloudflare auto-handles static asset caching)
+# ---- HTML pages: short cache ----
+/
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /index.html
   Cache-Control: public, max-age=3600, must-revalidate
 
-/robots.txt
-  Cache-Control: public, max-age=86400
-
+# ---- Sitemap: MUST have correct Content-Type for Google ----
 /sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: noindex
+
+# ---- Robots.txt ----
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400
 
+# ---- OG Image: long cache ----
 /og-image.png
   Cache-Control: public, max-age=2592000, immutable

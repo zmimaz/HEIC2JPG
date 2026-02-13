@@ -1,38 +1,7 @@
 # ============================================================
 #  HEIC2JPG — robots.txt
-#  Allow all search engine crawlers full access
-# ============================================================
-#
-#  ⚙️ CUSTOM DOMAIN: If you use a custom domain, change the
-#  Sitemap URL below from heic2jpg.pages.dev to your domain.
-#
 # ============================================================
 
 User-agent: *
 Allow: /
-
-# Sitemap location (helps Google discover all pages)
 Sitemap: https://zmimaz.qzz.io/sitemap.xml
-
-# Specific crawler directives
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Yandex
-Allow: /
-Crawl-delay: 1
-
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
-
-# Block AI training crawlers (optional — uncomment to opt out)
-# User-agent: GPTBot
-# Disallow: /
-# User-agent: CCBot
-# Disallow: /
