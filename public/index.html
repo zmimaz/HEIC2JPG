@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==========================================================
+         ⚙️ DOMAIN CONFIGURATION — CHANGE YOUR DOMAIN HERE
+         ==========================================================
+         If you use a custom domain, change ONLY the line below.
+         All SEO tags (canonical, OG, hreflang, structured data)
+         will be automatically updated via JavaScript on page load.
+         ========================================================== -->
+    <meta name="x-site-domain" content="zmimaz.qzz.io">
+
+    <!-- ==================== SEO: Primary Meta Tags ==================== -->
+    <title>HEIC转JPG转换器 - 免费在线转换苹果图片格式 | HEIC to JPG Converter</title>
+    <meta name="description" content="免费在线HEIC转JPG工具，无需安装软件，支持批量转换，隐私安全，所有处理在本地浏览器完成。Free online HEIC to JPG converter, no upload needed, 100% private.">
+    <meta name="keywords" content="HEIC转JPG, HEIC to JPG, HEIC converter, HEIC转换器, 苹果图片转换, iPhone照片转JPG, HEIF to JPEG, 在线转换, online converter, free, 免费, batch convert, 批量转换">
+    <meta name="author" content="HEIC2JPG Online Converter">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
+    <link rel="canonical" href="https://heic2jpg.pages.dev/" data-domain-url>
+
+    <!-- ==================== SEO: Favicon ==================== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3e%3cdefs%3e%3clinearGradient id='g' x1='0' y1='0' x2='64' y2='64' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%233b82f6'/%3e%3cstop offset='1' stop-color='%236366f1'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect width='64' height='64' rx='14' fill='url(%23g)'/%3e%3cpath d='M16 40l8-8a4 4 0 015.6 0L36 38l4-4a4 4 0 015.6 0L50 38M38 26h.1M20 48h24a4 4 0 004-4V20a4 4 0 00-4-4H20a4 4 0 00-4 4v24a4 4 0 004 4z' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3e%3cdefs%3e%3clinearGradient id='g' x1='0' y1='0' x2='64' y2='64' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%233b82f6'/%3e%3cstop offset='1' stop-color='%236366f1'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect width='64' height='64' rx='14' fill='url(%23g)'/%3e%3cpath d='M16 40l8-8a4 4 0 015.6 0L36 38l4-4a4 4 0 015.6 0L50 38M38 26h.1M20 48h24a4 4 0 004-4V20a4 4 0 00-4-4H20a4 4 0 00-4 4v24a4 4 0 004 4z' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e">
+
+    <!-- ==================== SEO: Hreflang for i18n ==================== -->
+    <link rel="alternate" hreflang="zh-CN" href="https://heic2jpg.pages.dev/" data-domain-url>
+    <link rel="alternate" hreflang="en" href="https://heic2jpg.pages.dev/" data-domain-url>
+    <link rel="alternate" hreflang="x-default" href="https://heic2jpg.pages.dev/" data-domain-url>
+
+    <!-- ==================== SEO: Sitemap Discovery ==================== -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    <!-- ==================== SEO: Open Graph (Facebook, WeChat, etc.) ==================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HEIC to JPG Converter — Free Online Tool | HEIC转JPG转换器">
+    <meta property="og:description" content="Convert Apple HEIC/HEIF photos to JPG instantly. Free, private, no upload — runs 100% in your browser.">
+    <meta property="og:url" content="https://heic2jpg.pages.dev/" data-domain-url>
+    <meta property="og:site_name" content="HEIC2JPG">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://heic2jpg.pages.dev/og-image.png" data-domain-url>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="HEIC to JPG Converter — Free online tool">
+
+    <!-- ==================== SEO: Twitter Card ==================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HEIC to JPG Converter — Free Online Tool">
+    <meta name="twitter:description" content="Convert Apple HEIC photos to JPG instantly. 100% free, private, browser-based.">
+    <meta name="twitter:image" content="https://heic2jpg.pages.dev/og-image.png" data-domain-url>
+
+    <!-- ==================== SEO: Structured Data — WebApplication ==================== -->
+    <script type="application/ld+json" data-domain-json>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HEIC2JPG — HEIC to JPG Converter",
+        "alternateName": "HEIC转JPG在线转换器",
+        "url": "https://heic2jpg.pages.dev/",
+        "description": "Free online HEIC to JPG converter. Convert Apple iPhone/iPad HEIC photos to universal JPG format. No upload, 100% private, runs entirely in your browser.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires a modern browser with WebAssembly support",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "HEIC to JPG conversion",
+            "Batch file conversion",
+            "Adjustable JPG quality",
+            "100% client-side processing",
+            "No file upload to server",
+            "Privacy-first design",
+            "Drag and drop support"
+        ],
+        "screenshot": "https://heic2jpg.pages.dev/og-image.png",
+        "inLanguage": ["zh-CN", "en"]
+    }
+    </script>
+
+    <!-- ==================== SEO: Structured Data — FAQPage ==================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is HEIC format?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "HEIC (High Efficiency Image Container) is the default photo format used by Apple devices since iOS 11. It offers better compression than JPG while maintaining higher quality, but has limited compatibility on Windows and Android devices."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my photos uploaded to a server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No! All conversion happens 100% in your browser using WebAssembly technology. Your photos never leave your device. When you close the page, all data is gone."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which browsers are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We recommend the latest versions of Chrome, Edge, Firefox, or Safari. The tool uses WebAssembly (WASM) technology, so a relatively modern browser is required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What about the output quality?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default JPG quality is 92%, which provides an excellent balance between visual quality and file size. You can adjust the quality slider from 10% to 100% to suit your needs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "什么是HEIC格式？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "HEIC（High Efficiency Image Container）是苹果公司在iOS 11之后采用的默认图片格式。它比JPG压缩率更高、质量更好，但在Windows和安卓设备上兼容性较差。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "我的图片会被上传吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "不会！所有转换过程100%在您的浏览器中本地完成，您的图片不会被上传到任何服务器。关闭网页后，所有数据即消失。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- ==================== SEO: Structured Data — BreadcrumbList ==================== -->
+    <script type="application/ld+json" data-domain-json>
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://heic2jpg.pages.dev/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- ==================== SEO: Structured Data — HowTo ==================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Convert HEIC to JPG Online",
+        "description": "Convert Apple HEIC/HEIF photos to JPG format in 3 simple steps using our free online tool.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Upload HEIC files",
+                "text": "Click the upload area or drag and drop your HEIC/HEIF files into the converter."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Adjust quality and convert",
+                "text": "Optionally adjust the JPG quality slider, then click the Convert button."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Download JPG files",
+                "text": "Preview and download your converted JPG files individually or all at once."
+            }
+        ],
+        "totalTime": "PT1M",
+        "tool": {
+            "@type": "HowToTool",
+            "name": "A modern web browser (Chrome, Edge, Firefox, Safari)"
+        }
+    }
+    </script>
+
+    <!-- ==================== Assets ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        .drop-zone {
+            transition: all 0.3s ease;
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23CBD5E1' stroke-width='3' stroke-dasharray='12%2c 8' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+        }
+        .drop-zone.drag-over {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%233B82F6' stroke-width='3' stroke-dasharray='12%2c 8' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+            background-color: #eff6ff;
+            transform: scale(1.01);
+        }
+
+        .progress-bar-fill { transition: width 0.4s ease; }
+
+        .fade-in { animation: fadeIn 0.5s ease forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse-loading { animation: pulse 1.5s ease-in-out infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .file-card { transition: all 0.2s ease; }
+        .file-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+        .btn-primary { transition: all 0.2s ease; }
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+        .btn-primary:active:not(:disabled) { transform: translateY(0); }
+
+        .lang-switch { transition: all 0.2s ease; }
+        .lang-switch:hover { background-color: rgba(59, 130, 246, 0.1); }
+        .lang-switch .lang-option { transition: all 0.15s ease; }
+        .lang-switch .lang-option.active {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            color: white;
+            box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+
+    <!-- ==================== Domain Auto-Configuration ==================== -->
+    <script>
+    (function() {
+        var domainMeta = document.querySelector('meta[name="x-site-domain"]');
+        if (!domainMeta) return;
+        var DOMAIN = domainMeta.content.replace(/\/+$/, '');
+        var BASE = 'https://' + DOMAIN;
+        var OLD_DOMAIN = 'heic2jpg.pages.dev';
+
+        if (DOMAIN === OLD_DOMAIN) return;
+
+        var OLD_BASE = 'https://' + OLD_DOMAIN;
+
+        document.querySelectorAll('[data-domain-url]').forEach(function(el) {
+            ['href', 'content'].forEach(function(attr) {
+                if (el.hasAttribute(attr)) {
+                    el.setAttribute(attr, el.getAttribute(attr).replace(OLD_BASE, BASE));
+                }
+            });
+        });
+
+        document.querySelectorAll('script[data-domain-json]').forEach(function(el) {
+            el.textContent = el.textContent.split(OLD_DOMAIN).join(DOMAIN);
+        });
+    })();
+    </script>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+
+    <!-- ==================== Navigation ==================== -->
+    <nav class="bg-white/70 backdrop-blur-lg border-b border-slate-200/50 sticky top-0 z-50" role="navigation" aria-label="Main navigation">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-200">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <span class="text-lg font-bold text-slate-800">HEIC<span class="text-blue-600">2</span>JPG</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="lang-switch flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/80" role="radiogroup" aria-label="Language selection">
+                    <button id="langZh" class="lang-option text-xs font-semibold px-3 py-1 rounded-full cursor-pointer" role="radio" aria-checked="true" onclick="switchLang('zh')">中文</button>
+                    <button id="langEn" class="lang-option text-xs font-semibold px-3 py-1 rounded-full cursor-pointer text-slate-500" role="radio" aria-checked="false" onclick="switchLang('en')">EN</button>
+                </div>
+                <div class="hidden sm:flex items-center gap-1.5 text-xs text-slate-500 bg-green-50 px-3 py-1.5 rounded-full border border-green-200">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true"></span>
+                    <span data-i18n="nav.privacy">本地转换 · 隐私安全</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== Main Content ==================== -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12" role="main">
+
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                <span data-i18n="hero.title1">HEIC 图片转 JPG</span>
+                <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" data-i18n="hero.title2"> 在线转换器</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                <span data-i18n="hero.desc1">苹果设备拍摄的 HEIC 格式无法打开？拖入即可转换为通用 JPG 格式。</span>
+                <br class="hidden sm:block">
+                <strong class="text-slate-600" data-i18n="hero.desc2">完全免费</strong><span data-i18n="hero.desc3">，无需上传到服务器，所有转换在您的浏览器中本地完成。</span>
+            </p>
+        </header>
+
+        <section aria-label="How to use" class="grid grid-cols-3 gap-3 sm:gap-4 mb-8 max-w-2xl mx-auto">
+            <div class="text-center p-3 sm:p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                <div class="text-2xl mb-1" aria-hidden="true">🔒</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700" data-i18n="feature.privacy">隐私安全</div>
+                <div class="text-xs text-slate-400 mt-0.5 hidden sm:block" data-i18n="feature.privacyDesc">文件不离开设备</div>
+            </div>
+            <div class="text-center p-3 sm:p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                <div class="text-2xl mb-1" aria-hidden="true">⚡</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700" data-i18n="feature.fast">极速转换</div>
+                <div class="text-xs text-slate-400 mt-0.5 hidden sm:block" data-i18n="feature.fastDesc">浏览器本地处理</div>
+            </div>
+            <div class="text-center p-3 sm:p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                <div class="text-2xl mb-1" aria-hidden="true">📦</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700" data-i18n="feature.batch">批量转换</div>
+                <div class="text-xs text-slate-400 mt-0.5 hidden sm:block" data-i18n="feature.batchDesc">一次选择多个文件</div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden mb-6" aria-label="File upload">
+            <div class="p-6 sm:p-8">
+                <div id="dropZone" class="drop-zone rounded-2xl p-8 sm:p-12 text-center cursor-pointer relative" role="button" tabindex="0" aria-label="Upload HEIC files">
+                    <input type="file" id="fileInput" accept=".heic,.heif,image/heic,image/heif" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" aria-label="Choose HEIC files">
+                    <div id="uploadPrompt">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-5 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                        </div>
+                        <p class="text-lg sm:text-xl font-semibold text-slate-700 mb-2" data-i18n="upload.title">点击或拖拽 HEIC 文件到此处</p>
+                        <p class="text-sm text-slate-400" data-i18n="upload.subtitle">支持 .heic / .heif 格式，可多选文件批量转换</p>
+                        <p class="text-xs text-slate-300 mt-2" data-i18n="upload.sizeHint">单个文件建议不超过 30MB</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fileListSection" class="hidden mb-6" aria-label="Selected files">
+            <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden">
+                <div class="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-lg font-bold text-slate-800" data-i18n="fileList.title">已选文件</h2>
+                        <span id="fileCount" class="text-xs bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full font-medium">0</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="addMoreBtn" class="text-sm text-blue-600 hover:text-blue-700 font-medium px-3 py-1.5 hover:bg-blue-50 rounded-lg transition-colors" data-i18n="fileList.addMore">+ 继续添加</button>
+                        <button id="clearAllBtn" class="text-sm text-red-500 hover:text-red-600 font-medium px-3 py-1.5 hover:bg-red-50 rounded-lg transition-colors" data-i18n="fileList.clearAll">清空全部</button>
+                    </div>
+                </div>
+                <div id="fileList" class="divide-y divide-slate-50 max-h-80 overflow-y-auto" role="list"></div>
+                <div class="p-4 sm:p-6 bg-slate-50/50 border-t border-slate-100">
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <div class="flex items-center gap-3 flex-1">
+                            <label for="qualitySlider" class="text-sm font-medium text-slate-600 whitespace-nowrap" data-i18n="quality.label">JPG 质量：</label>
+                            <input type="range" id="qualitySlider" min="0.1" max="1" step="0.05" value="0.92" class="flex-1 accent-blue-500 h-2" aria-label="JPG Quality">
+                            <span id="qualityValue" class="text-sm font-bold text-blue-600 min-w-[3rem] text-right">92%</span>
+                        </div>
+                        <button id="convertBtn" class="btn-primary w-full sm:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-8 py-3 rounded-xl shadow-md disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                            <span id="convertBtnText" class="flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                <span data-i18n="convert.start">开始转换</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="totalProgressSection" class="hidden mb-6 fade-in" aria-label="Conversion progress">
+            <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden p-6">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-sm font-semibold text-slate-700" data-i18n="progress.total">总体进度</span>
+                    <span id="totalProgressText" class="text-sm font-bold text-blue-600">0 / 0</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div id="totalProgressBar" class="progress-bar-fill h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultSection" class="hidden mb-6 fade-in" aria-label="Conversion results">
+            <div class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-200/50 overflow-hidden">
+                <div class="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center" aria-hidden="true">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-lg font-bold text-slate-800" data-i18n="result.title">转换完成</h2>
+                        <span id="resultCount" class="text-xs bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full font-medium">0</span>
+                    </div>
+                    <button id="downloadAllBtn" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            <span data-i18n="result.downloadAll">全部下载</span>
+                        </span>
+                    </button>
+                </div>
+                <div id="resultList" class="divide-y divide-slate-50 max-h-96 overflow-y-auto" role="list"></div>
+            </div>
+        </section>
+
+        <div id="errorSection" class="hidden mb-6 fade-in" role="alert">
+            <div class="bg-red-50 rounded-2xl border border-red-200 p-5">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" aria-hidden="true">
+                        <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-red-800 mb-1" data-i18n="error.title">转换出错</h3>
+                        <p id="errorMessage" class="text-sm text-red-600"></p>
+                    </div>
+                    <button id="closeError" class="ml-auto text-red-400 hover:text-red-600 flex-shrink-0" aria-label="Close error">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-12 mb-10" aria-label="How to convert HEIC to JPG">
+            <h2 class="text-2xl font-bold text-slate-800 text-center mb-8" data-i18n="howto.title">如何转换 HEIC 为 JPG</h2>
+            <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <article class="text-center">
+                    <div class="w-14 h-14 mx-auto mb-3 bg-blue-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-extrabold text-blue-600">1</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-800 mb-1" data-i18n="howto.step1title">上传文件</h3>
+                    <p class="text-sm text-slate-500" data-i18n="howto.step1desc">点击上传区域或直接拖拽 HEIC 文件进来</p>
+                </article>
+                <article class="text-center">
+                    <div class="w-14 h-14 mx-auto mb-3 bg-indigo-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-extrabold text-indigo-600">2</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-800 mb-1" data-i18n="howto.step2title">一键转换</h3>
+                    <p class="text-sm text-slate-500" data-i18n="howto.step2desc">调节质量后点击"开始转换"，浏览器自动处理</p>
+                </article>
+                <article class="text-center">
+                    <div class="w-14 h-14 mx-auto mb-3 bg-green-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-2xl font-extrabold text-green-600">3</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-800 mb-1" data-i18n="howto.step3title">下载 JPG</h3>
+                    <p class="text-sm text-slate-500" data-i18n="howto.step3desc">预览并下载转换好的 JPG 图片</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mt-12 mb-8" aria-label="Frequently Asked Questions" itemscope itemtype="https://schema.org/FAQPage">
+            <h2 class="text-2xl font-bold text-slate-800 text-center mb-8" data-i18n="faq.title">常见问题</h2>
+            <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                <article class="bg-white/70 rounded-xl p-5 border border-slate-200/50" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2" itemprop="name">
+                        <span class="text-blue-500">Q:</span> <span data-i18n="faq.q1">什么是 HEIC 格式？</span>
+                    </h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p class="text-sm text-slate-500 leading-relaxed" itemprop="text" data-i18n="faq.a1">HEIC（High Efficiency Image Container）是苹果公司在 iOS 11 之后采用的默认图片格式。它比 JPG 压缩率更高、质量更好，但在 Windows 和安卓设备上兼容性较差。</p>
+                    </div>
+                </article>
+                <article class="bg-white/70 rounded-xl p-5 border border-slate-200/50" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2" itemprop="name">
+                        <span class="text-blue-500">Q:</span> <span data-i18n="faq.q2">我的图片会被上传吗？</span>
+                    </h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p class="text-sm text-slate-500 leading-relaxed" itemprop="text" data-i18n="faq.a2">不会！所有转换过程100%在您的浏览器中本地完成，您的图片不会被上传到任何服务器。关闭网页后，所有数据即消失。</p>
+                    </div>
+                </article>
+                <article class="bg-white/70 rounded-xl p-5 border border-slate-200/50" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2" itemprop="name">
+                        <span class="text-blue-500">Q:</span> <span data-i18n="faq.q3">支持哪些浏览器？</span>
+                    </h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p class="text-sm text-slate-500 leading-relaxed" itemprop="text" data-i18n="faq.a3">推荐使用最新版的 Chrome、Edge、Firefox 或 Safari 浏览器。由于使用了 WebAssembly 技术，需要较新的浏览器版本。</p>
+                    </div>
+                </article>
+                <article class="bg-white/70 rounded-xl p-5 border border-slate-200/50" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 class="font-semibold text-slate-800 mb-2 flex items-center gap-2" itemprop="name">
+                        <span class="text-blue-500">Q:</span> <span data-i18n="faq.q4">转换后的质量如何？</span>
+                    </h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p class="text-sm text-slate-500 leading-relaxed" itemprop="text" data-i18n="faq.a4">默认转换质量为 92%，您可以通过滑块自行调节。质量越高文件越大，92% 是视觉质量与文件大小的最佳平衡点。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="mt-10 mb-8 max-w-3xl mx-auto" aria-label="About this tool">
+            <div class="bg-white/50 rounded-2xl p-6 sm:p-8 border border-slate-200/50">
+                <h2 class="text-xl font-bold text-slate-800 mb-4" data-i18n="about.title">关于 HEIC2JPG 在线转换器</h2>
+                <div class="text-sm text-slate-500 leading-relaxed space-y-3">
+                    <p data-i18n="about.p1">HEIC2JPG 是一款完全免费的在线图片格式转换工具，专门用于将苹果 iPhone、iPad 拍摄的 HEIC（High Efficiency Image Container）/ HEIF（High Efficiency Image Format）格式照片转换为通用的 JPG（JPEG）格式。</p>
+                    <p data-i18n="about.p2">与其他在线转换工具不同，HEIC2JPG 采用 WebAssembly (WASM) 技术，所有转换过程100%在您的浏览器中本地完成。您的照片永远不会被上传到任何服务器，确保了完全的隐私安全。</p>
+                    <p data-i18n="about.p3">无论您使用 Windows、Mac、Linux、Android 还是 iOS 设备，只要有现代浏览器，就可以轻松完成 HEIC 到 JPG 的转换。支持批量转换、自定义输出质量，一键下载所有转换结果。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="border-t border-slate-200/50 bg-white/30" aria-label="Related topics">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6">
+            <div class="flex flex-wrap justify-center gap-2">
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">HEIC to JPG</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">HEIF to JPEG</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">iPhone photo converter</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">HEIC转JPG</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">苹果图片转换</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">convert HEIC online</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">free image converter</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">batch HEIC conversion</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">HEIC Windows</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">HEIC Android</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">iOS照片格式</span>
+                <span class="text-xs text-slate-300 bg-slate-100/60 px-3 py-1 rounded-full">private converter</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-200/50 bg-white/50 backdrop-blur-sm" role="contentinfo">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-center">
+            <p class="text-sm text-slate-400">
+                <span data-i18n="footer.desc">HEIC2JPG 在线转换器 · 免费 · 开源 · 隐私安全</span>
+            </p>
+            <p class="text-xs text-slate-300 mt-1">
+                <span data-i18n="footer.builtWith">基于</span> <a href="https://github.com/alexcorvi/heic2any" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-500">heic2any</a> <span data-i18n="footer.and">和</span> <a href="https://github.com/nichenqin/libheif-js" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-500">libheif</a> <span data-i18n="footer.built">构建</span>
+            </p>
+            <p class="text-xs text-slate-300 mt-2">
+                © 2025 HEIC2JPG. <a href="/sitemap.xml" class="underline hover:text-slate-400">Sitemap</a>
+            </p>
+        </div>
+    </footer>
+
+    <input type="file" id="addMoreInput" accept=".heic,.heif,image/heic,image/heif" multiple class="hidden" aria-hidden="true">
+
+    <script>
+    const I18N = {
+        zh: {
+            'nav.privacy': '本地转换 · 隐私安全',
+            'hero.title1': 'HEIC 图片转 JPG',
+            'hero.title2': ' 在线转换器',
+            'hero.desc1': '苹果设备拍摄的 HEIC 格式无法打开？拖入即可转换为通用 JPG 格式。',
+            'hero.desc2': '完全免费',
+            'hero.desc3': '，无需上传到服务器，所有转换在您的浏览器中本地完成。',
+            'feature.privacy': '隐私安全', 'feature.privacyDesc': '文件不离开设备',
+            'feature.fast': '极速转换', 'feature.fastDesc': '浏览器本地处理',
+            'feature.batch': '批量转换', 'feature.batchDesc': '一次选择多个文件',
+            'upload.title': '点击或拖拽 HEIC 文件到此处',
+            'upload.subtitle': '支持 .heic / .heif 格式，可多选文件批量转换',
+            'upload.sizeHint': '单个文件建议不超过 30MB',
+            'fileList.title': '已选文件', 'fileList.addMore': '+ 继续添加',
+            'fileList.clearAll': '清空全部', 'fileList.countUnit': ' 个',
+            'quality.label': 'JPG 质量：',
+            'convert.start': '开始转换', 'convert.converting': '转换中...',
+            'status.waiting': '等待转换', 'status.converting': '转换中...',
+            'status.done': '✓ 完成', 'status.failed': '✗ 失败',
+            'progress.total': '总体进度',
+            'result.title': '转换完成', 'result.downloadAll': '全部下载',
+            'result.download': '下载', 'result.preview': '预览',
+            'error.title': '转换出错',
+            'error.noHeic': '没有检测到有效的 HEIC/HEIF 文件。请确保您选择的是苹果设备拍摄的 .heic 或 .heif 格式图片。',
+            'error.skipped': (s, k) => `已跳过 ${s} 个非 HEIC 格式文件，仅保留了 ${k} 个 HEIC 文件。`,
+            'error.oversized': (c) => `${c} 个文件超过 50MB 限制，可能导致转换失败。`,
+            'error.failedFiles': (n) => `以下文件转换失败：${n}。可能原因：文件损坏、格式不支持或文件过大。`,
+            'howto.title': '如何转换 HEIC 为 JPG',
+            'howto.step1title': '上传文件', 'howto.step1desc': '点击上传区域或直接拖拽 HEIC 文件进来',
+            'howto.step2title': '一键转换', 'howto.step2desc': '调节质量后点击"开始转换"，浏览器自动处理',
+            'howto.step3title': '下载 JPG', 'howto.step3desc': '预览并下载转换好的 JPG 图片',
+            'faq.title': '常见问题',
+            'faq.q1': '什么是 HEIC 格式？',
+            'faq.a1': 'HEIC（High Efficiency Image Container）是苹果公司在 iOS 11 之后采用的默认图片格式。它比 JPG 压缩率更高、质量更好，但在 Windows 和安卓设备上兼容性较差。',
+            'faq.q2': '我的图片会被上传吗？',
+            'faq.a2': '不会！所有转换过程100%在您的浏览器中本地完成，您的图片不会被上传到任何服务器。关闭网页后，所有数据即消失。',
+            'faq.q3': '支持哪些浏览器？',
+            'faq.a3': '推荐使用最新版的 Chrome、Edge、Firefox 或 Safari 浏览器。由于使用了 WebAssembly 技术，需要较新的浏览器版本。',
+            'faq.q4': '转换后的质量如何？',
+            'faq.a4': '默认转换质量为 92%，您可以通过滑块自行调节。质量越高文件越大，92% 是视觉质量与文件大小的最佳平衡点。',
+            'about.title': '关于 HEIC2JPG 在线转换器',
+            'about.p1': 'HEIC2JPG 是一款完全免费的在线图片格式转换工具，专门用于将苹果 iPhone、iPad 拍摄的 HEIC（High Efficiency Image Container）/ HEIF（High Efficiency Image Format）格式照片转换为通用的 JPG（JPEG）格式。',
+            'about.p2': '与其他在线转换工具不同，HEIC2JPG 采用 WebAssembly (WASM) 技术，所有转换过程100%在您的浏览器中本地完成。您的照片永远不会被上传到任何服务器，确保了完全的隐私安全。',
+            'about.p3': '无论您使用 Windows、Mac、Linux、Android 还是 iOS 设备，只要有现代浏览器，就可以轻松完成 HEIC 到 JPG 的转换。支持批量转换、自定义输出质量，一键下载所有转换结果。',
+            'footer.desc': 'HEIC2JPG 在线转换器 · 免费 · 开源 · 隐私安全',
+            'footer.builtWith': '基于', 'footer.and': '和', 'footer.built': '构建',
+        },
+        en: {
+            'nav.privacy': 'Local Processing · Private',
+            'hero.title1': 'HEIC to JPG', 'hero.title2': ' Online Converter',
+            'hero.desc1': "Can't open HEIC photos from your iPhone? Drop them here to convert to universal JPG format.",
+            'hero.desc2': '100% Free',
+            'hero.desc3': ' — no server upload, all conversion happens locally in your browser.',
+            'feature.privacy': 'Privacy First', 'feature.privacyDesc': 'Files never leave your device',
+            'feature.fast': 'Lightning Fast', 'feature.fastDesc': 'Processed in your browser',
+            'feature.batch': 'Batch Convert', 'feature.batchDesc': 'Select multiple files at once',
+            'upload.title': 'Click or drag HEIC files here',
+            'upload.subtitle': 'Supports .heic / .heif formats, batch selection available',
+            'upload.sizeHint': 'Recommended max 30MB per file',
+            'fileList.title': 'Selected Files', 'fileList.addMore': '+ Add More',
+            'fileList.clearAll': 'Clear All', 'fileList.countUnit': '',
+            'quality.label': 'JPG Quality:',
+            'convert.start': 'Start Converting', 'convert.converting': 'Converting...',
+            'status.waiting': 'Waiting', 'status.converting': 'Converting...',
+            'status.done': '✓ Done', 'status.failed': '✗ Failed',
+            'progress.total': 'Overall Progress',
+            'result.title': 'Conversion Complete', 'result.downloadAll': 'Download All',
+            'result.download': 'Download', 'result.preview': 'Preview',
+            'error.title': 'Conversion Error',
+            'error.noHeic': 'No valid HEIC/HEIF files detected. Please select .heic or .heif photos taken by Apple devices.',
+            'error.skipped': (s, k) => `Skipped ${s} non-HEIC file(s), kept ${k} HEIC file(s).`,
+            'error.oversized': (c) => `${c} file(s) exceed the 50MB limit and may fail to convert.`,
+            'error.failedFiles': (n) => `The following files failed to convert: ${n}. Possible reasons: corrupted file, unsupported format, or file too large.`,
+            'howto.title': 'How to Convert HEIC to JPG',
+            'howto.step1title': 'Upload Files', 'howto.step1desc': 'Click the upload area or drag & drop your HEIC files',
+            'howto.step2title': 'One-Click Convert', 'howto.step2desc': 'Adjust quality and click "Start Converting" — your browser does the rest',
+            'howto.step3title': 'Download JPG', 'howto.step3desc': 'Preview and download your converted JPG images',
+            'faq.title': 'Frequently Asked Questions',
+            'faq.q1': 'What is HEIC format?',
+            'faq.a1': 'HEIC (High Efficiency Image Container) is the default photo format used by Apple devices since iOS 11. It offers better compression and quality than JPG, but has limited compatibility on Windows and Android devices.',
+            'faq.q2': 'Are my photos uploaded to a server?',
+            'faq.a2': 'No! All conversion happens 100% locally in your browser. Your photos are never sent to any server. When you close the page, all data is gone.',
+            'faq.q3': 'Which browsers are supported?',
+            'faq.a3': 'We recommend the latest versions of Chrome, Edge, Firefox, or Safari. The tool uses WebAssembly technology and requires a modern browser.',
+            'faq.q4': 'What about output quality?',
+            'faq.a4': 'The default quality is 92%, adjustable via the slider. Higher quality means larger files. 92% provides the best balance between visual quality and file size.',
+            'about.title': 'About HEIC2JPG Online Converter',
+            'about.p1': 'HEIC2JPG is a completely free online image format converter, specifically designed to convert HEIC / HEIF photos from Apple iPhone and iPad into the universally compatible JPG (JPEG) format.',
+            'about.p2': 'Unlike other online converters, HEIC2JPG uses WebAssembly (WASM) technology to process everything 100% locally in your browser. Your photos are never uploaded to any server, ensuring complete privacy and security.',
+            'about.p3': 'Whether you use Windows, Mac, Linux, Android, or iOS, as long as you have a modern browser, you can easily convert HEIC to JPG. Supports batch conversion, customizable output quality, and one-click download of all results.',
+            'footer.desc': 'HEIC2JPG Online Converter · Free · Open Source · Private',
+            'footer.builtWith': 'Built with', 'footer.and': 'and', 'footer.built': '',
+        }
+    };
+
+    let currentLang = 'zh';
+
+    function detectLanguage() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        if (urlLang === 'en' || urlLang === 'zh') return urlLang;
+        const saved = localStorage.getItem('heic2jpg-lang');
+        if (saved === 'en' || saved === 'zh') return saved;
+        const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (browserLang.startsWith('zh')) return 'zh';
+        return 'en';
+    }
+
+    function t(key) { return I18N[currentLang][key] || I18N['zh'][key] || key; }
+
+    function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('heic2jpg-lang', lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.title = lang === 'zh'
+            ? 'HEIC转JPG转换器 - 免费在线转换苹果图片格式 | HEIC to JPG Converter'
+            : 'HEIC to JPG Converter — Free Online Apple Photo Format Converter';
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.content = lang === 'zh'
+                ? '免费在线HEIC转JPG工具，无需安装软件，支持批量转换，隐私安全，所有处理在本地浏览器完成。'
+                : 'Free online HEIC to JPG converter. Convert Apple iPhone/iPad HEIC photos to JPG instantly. No upload, 100% private, browser-based.';
+        }
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const val = t(key);
+            if (typeof val === 'string') el.textContent = val;
+        });
+        const zhBtn = document.getElementById('langZh');
+        const enBtn = document.getElementById('langEn');
+        if (lang === 'zh') {
+            zhBtn.classList.add('active'); zhBtn.setAttribute('aria-checked', 'true');
+            enBtn.classList.remove('active'); enBtn.setAttribute('aria-checked', 'false');
+        } else {
+            enBtn.classList.add('active'); enBtn.setAttribute('aria-checked', 'true');
+            zhBtn.classList.remove('active'); zhBtn.setAttribute('aria-checked', 'false');
+        }
+        const url = new URL(window.location);
+        if (url.searchParams.has('lang') || window._userSwitchedLang) {
+            url.searchParams.set('lang', lang);
+            history.replaceState(null, '', url);
+        }
+    }
+
+    function switchLang(lang) {
+        window._userSwitchedLang = true;
+        applyLanguage(lang);
+        if (typeof renderFileList === 'function' && selectedFiles && selectedFiles.length > 0) renderFileList();
+    }
+
+    (function() {
+        'use strict';
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const addMoreInput = document.getElementById('addMoreInput');
+        const fileListSection = document.getElementById('fileListSection');
+        const fileList = document.getElementById('fileList');
+        const fileCount = document.getElementById('fileCount');
+        const convertBtn = document.getElementById('convertBtn');
+        const convertBtnText = document.getElementById('convertBtnText');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+        const totalProgressSection = document.getElementById('totalProgressSection');
+        const totalProgressBar = document.getElementById('totalProgressBar');
+        const totalProgressText = document.getElementById('totalProgressText');
+        const resultSection = document.getElementById('resultSection');
+        const resultList = document.getElementById('resultList');
+        const resultCount = document.getElementById('resultCount');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const errorSection = document.getElementById('errorSection');
+        const errorMessage = document.getElementById('errorMessage');
+        const closeError = document.getElementById('closeError');
+        const addMoreBtn = document.getElementById('addMoreBtn');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+
+        window.selectedFiles = [];
+        let selectedFiles = window.selectedFiles;
+        let convertedResults = [];
+        let isConverting = false;
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+        function getFileNameWithoutExt(name) { return name.replace(/\.[^/.]+$/, ''); }
+        function isHEICFile(file) {
+            const name = file.name.toLowerCase();
+            const type = file.type.toLowerCase();
+            return name.endsWith('.heic') || name.endsWith('.heif') ||
+                   type === 'image/heic' || type === 'image/heif' ||
+                   type === 'image/heic-sequence' || type === 'image/heif-sequence';
+        }
+        function showError(msg) {
+            errorMessage.textContent = msg;
+            errorSection.classList.remove('hidden');
+            errorSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        function hideError() { errorSection.classList.add('hidden'); }
+
+        ['dragenter', 'dragover'].forEach(ev => {
+            dropZone.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); dropZone.classList.add('drag-over'); });
+        });
+        ['dragleave', 'drop'].forEach(ev => {
+            dropZone.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); dropZone.classList.remove('drag-over'); });
+        });
+        dropZone.addEventListener('drop', (e) => { handleFiles(Array.from(e.dataTransfer.files)); });
+        fileInput.addEventListener('change', (e) => { handleFiles(Array.from(e.target.files)); e.target.value = ''; });
+        addMoreInput.addEventListener('change', (e) => { handleFiles(Array.from(e.target.files)); e.target.value = ''; });
+        addMoreBtn.addEventListener('click', () => addMoreInput.click());
+        clearAllBtn.addEventListener('click', () => {
+            selectedFiles.length = 0; window.selectedFiles = selectedFiles; renderFileList();
+            fileListSection.classList.add('hidden'); resultSection.classList.add('hidden');
+            totalProgressSection.classList.add('hidden'); convertedResults = [];
+        });
+
+        function handleFiles(files) {
+            hideError();
+            if (files.length === 0) return;
+            const heicFiles = files.filter(f => isHEICFile(f));
+            const skipped = files.length - heicFiles.length;
+            if (heicFiles.length === 0) { showError(t('error.noHeic')); return; }
+            if (skipped > 0) { const msg = I18N[currentLang]['error.skipped']; showError(typeof msg === 'function' ? msg(skipped, heicFiles.length) : msg); }
+            const oversized = heicFiles.filter(f => f.size > 50 * 1024 * 1024);
+            if (oversized.length > 0) { const msg = I18N[currentLang]['error.oversized']; showError(typeof msg === 'function' ? msg(oversized.length) : msg); }
+            heicFiles.forEach(file => {
+                const exists = selectedFiles.some(f => f.name === file.name && f.size === file.size);
+                if (!exists) selectedFiles.push(file);
+            });
+            window.selectedFiles = selectedFiles; renderFileList();
+            fileListSection.classList.remove('hidden');
+            fileListSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        window.renderFileList = renderFileList;
+        function renderFileList() {
+            selectedFiles = window.selectedFiles; fileList.innerHTML = '';
+            const unit = t('fileList.countUnit');
+            fileCount.textContent = `${selectedFiles.length}${unit}`;
+            selectedFiles.forEach((file, index) => {
+                const item = document.createElement('div');
+                item.className = 'file-card flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 hover:bg-slate-50/80';
+                item.setAttribute('role', 'listitem');
+                item.innerHTML = `
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-700 truncate">${file.name}</p>
+                        <p class="text-xs text-slate-400">${formatFileSize(file.size)}</p>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <div id="status-${index}" class="text-xs text-slate-400">${t('status.waiting')}</div>
+                        <button class="remove-btn text-slate-300 hover:text-red-500 transition-colors p-1" data-index="${index}" aria-label="Remove file">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
+                    </div>`;
+                fileList.appendChild(item);
+            });
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (isConverting) return;
+                    const idx = parseInt(btn.dataset.index);
+                    selectedFiles.splice(idx, 1); window.selectedFiles = selectedFiles; renderFileList();
+                    if (selectedFiles.length === 0) fileListSection.classList.add('hidden');
+                });
+            });
+            convertBtn.disabled = selectedFiles.length === 0;
+        }
+
+        qualitySlider.addEventListener('input', () => { qualityValue.textContent = Math.round(qualitySlider.value * 100) + '%'; });
+        convertBtn.addEventListener('click', startConversion);
+
+        async function startConversion() {
+            if (isConverting || selectedFiles.length === 0) return;
+            isConverting = true; hideError(); convertedResults = [];
+            convertBtn.disabled = true;
+            convertBtnText.innerHTML = `<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${t('convert.converting')}`;
+            totalProgressSection.classList.remove('hidden'); resultSection.classList.add('hidden'); resultList.innerHTML = '';
+            const quality = parseFloat(qualitySlider.value);
+            const total = selectedFiles.length; let completed = 0; let errors = [];
+            for (let i = 0; i < total; i++) {
+                const file = selectedFiles[i];
+                const statusEl = document.getElementById(`status-${i}`);
+                if (statusEl) statusEl.innerHTML = `<span class="text-blue-500 pulse-loading">${t('status.converting')}</span>`;
+                try {
+                    const blob = await heic2any({ blob: file, toType: 'image/jpeg', quality: quality });
+                    const resultBlob = Array.isArray(blob) ? blob[0] : blob;
+                    const jpgName = getFileNameWithoutExt(file.name) + '.jpg';
+                    const url = URL.createObjectURL(resultBlob);
+                    convertedResults.push({ name: jpgName, originalName: file.name, originalSize: file.size, size: resultBlob.size, url: url, blob: resultBlob });
+                    if (statusEl) statusEl.innerHTML = `<span class="text-green-600 font-medium">${t('status.done')}</span>`;
+                } catch (err) {
+                    console.error(`Conversion failed: ${file.name}`, err);
+                    errors.push(file.name);
+                    if (statusEl) statusEl.innerHTML = `<span class="text-red-500 font-medium">${t('status.failed')}</span>`;
+                }
+                completed++;
+                const percent = Math.round((completed / total) * 100);
+                totalProgressBar.style.width = percent + '%';
+                totalProgressText.textContent = `${completed} / ${total}`;
+            }
+            isConverting = false; convertBtn.disabled = false;
+            convertBtnText.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> ${t('convert.start')}`;
+            if (errors.length > 0) { const msg = I18N[currentLang]['error.failedFiles']; const sep = currentLang === 'zh' ? '、' : ', '; showError(typeof msg === 'function' ? msg(errors.join(sep)) : msg); }
+            if (convertedResults.length > 0) renderResults();
+        }
+
+        function renderResults() {
+            resultSection.classList.remove('hidden'); resultList.innerHTML = '';
+            const unit = t('fileList.countUnit');
+            resultCount.textContent = `${convertedResults.length}${unit}`;
+            convertedResults.forEach((result, index) => {
+                const compression = ((1 - result.size / result.originalSize) * 100).toFixed(0);
+                const item = document.createElement('div');
+                item.className = 'fade-in flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 hover:bg-slate-50/80';
+                item.setAttribute('role', 'listitem');
+                item.style.animationDelay = `${index * 0.08}s`;
+                item.innerHTML = `
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden flex-shrink-0 bg-slate-100 border border-slate-200">
+                        <img src="${result.url}" alt="${result.name}" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-slate-700 truncate">${result.name}</p>
+                        <div class="flex items-center gap-2 mt-0.5">
+                            <span class="text-xs text-slate-400">${formatFileSize(result.size)}</span>
+                            <span class="text-xs ${parseInt(compression) > 0 ? 'text-green-500' : 'text-orange-500'}">
+                                ${parseInt(compression) > 0 ? '↓' : '↑'} ${Math.abs(compression)}%
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <button class="preview-btn text-slate-400 hover:text-blue-500 transition-colors p-2" data-index="${index}" title="${t('result.preview')}">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </button>
+                        <a href="${result.url}" download="${result.name}" class="bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors">${t('result.download')}</a>
+                    </div>`;
+                resultList.appendChild(item);
+            });
+            document.querySelectorAll('.preview-btn').forEach(btn => {
+                btn.addEventListener('click', () => { openPreview(convertedResults[parseInt(btn.dataset.index)]); });
+            });
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function openPreview(result) {
+            const overlay = document.createElement('div');
+            overlay.className = 'fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 fade-in';
+            overlay.setAttribute('role', 'dialog'); overlay.setAttribute('aria-modal', 'true');
+            overlay.innerHTML = `
+                <div class="relative max-w-4xl max-h-[90vh] w-full">
+                    <button class="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors" aria-label="Close preview">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                    <img src="${result.url}" alt="${result.name}" class="w-full h-full object-contain rounded-lg">
+                    <p class="text-center text-white/60 text-sm mt-3">${result.name} · ${formatFileSize(result.size)}</p>
+                </div>`;
+            overlay.addEventListener('click', (e) => { if (e.target === overlay || e.target.closest('button')) overlay.remove(); });
+            document.addEventListener('keydown', function handler(e) { if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', handler); } });
+            document.body.appendChild(overlay);
+        }
+
+        downloadAllBtn.addEventListener('click', () => {
+            if (convertedResults.length === 0) return;
+            if (convertedResults.length === 1) { const a = document.createElement('a'); a.href = convertedResults[0].url; a.download = convertedResults[0].name; a.click(); }
+            else { convertedResults.forEach((result, i) => { setTimeout(() => { const a = document.createElement('a'); a.href = result.url; a.download = result.name; a.click(); }, i * 300); }); }
+        });
+        closeError.addEventListener('click', hideError);
+        window.addEventListener('beforeunload', () => { convertedResults.forEach(r => URL.revokeObjectURL(r.url)); });
+
+        const detectedLang = detectLanguage();
+        applyLanguage(detectedLang);
+    })();
+    </script>
+</body>
+</html>
