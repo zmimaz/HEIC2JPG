@@ -1,9 +1,8 @@
-// Cloudflare Pages Function
-// File: functions/robots.txt.js → routes to /robots.txt
+// Cloudflare Pages Function — /robots.txt
+
+const DOMAIN = "https://zmimaz.qzz.io";
 
 export function onRequest(context) {
-    const DOMAIN = "https://zmimaz.qzz.io";
-
     const body = `User-agent: *
 Allow: /
 

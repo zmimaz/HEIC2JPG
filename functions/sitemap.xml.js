@@ -1,9 +1,8 @@
-// Cloudflare Pages Function
-// File: functions/sitemap.xml.js → routes to /sitemap.xml
-// Returns XML with correct Content-Type header
+// Cloudflare Pages Function — /sitemap.xml
+
+const DOMAIN = "https://zmimaz.qzz.io";
 
 export function onRequest(context) {
-    const DOMAIN = "https://zmimaz.qzz.io";
     const today = new Date().toISOString().split('T')[0];
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
